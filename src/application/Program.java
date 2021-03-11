@@ -26,12 +26,11 @@ public class Program {
 		System.out.println("Enter file path: ");
 		String sourceFilePath = sc.nextLine();
 		File sourceFile = new File(sourceFilePath);
-		
+
 		// Creating folder for the new file and getting its path
 		String sourceFolderPath = sourceFile.getParent();
 		boolean newFolder = new File(sourceFolderPath + "\\out").mkdir();
 		String newFilePath = sourceFolderPath + "\\out\\summary.csv";
-		
 
 		try (BufferedReader br = new BufferedReader(new FileReader(sourceFilePath))) {
 
@@ -48,7 +47,6 @@ public class Program {
 
 				line = br.readLine();
 			}
-
 			try (BufferedWriter bw = new BufferedWriter(new FileWriter(newFilePath))) {
 
 				for (Product p : list) {
